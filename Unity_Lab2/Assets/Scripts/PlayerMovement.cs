@@ -19,6 +19,33 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    //Sound
+    //    if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+    //    {
+    //        if(other.gameObject.layer == LayerMask.NameToLayer("FloorMetal1"))
+    //        {
+    //            if (!FindObjectOfType<AudioManager>().IsThisSoundPlaying("Floor"))
+    //            {
+    //                FindObjectOfType<AudioManager>().Play("Floor");
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (!FindObjectOfType<AudioManager>().IsThisSoundPlaying("Floor2"))
+    //            {
+    //                FindObjectOfType<AudioManager>().Play("Floor2");
+    //            }
+    //        }
+            
+    //    }
+    //    else
+    //    {
+    //        FindObjectOfType<AudioManager>().Stop("Floor");
+    //        FindObjectOfType<AudioManager>().Stop("Floor2");
+    //    }
+    //}
     void Update()
     {
         //movementVector.x = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
@@ -45,11 +72,10 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseVector.x, transform.rotation.eulerAngles.z);
         cameraPosition.rotation = Quaternion.Euler(cameraPosition.rotation.eulerAngles + new Vector3(mouseVector.y * -1, 0f, 0f));
-        
+
         //Sound
         if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
         {
-            //if(gameObject.lay)
             if (!FindObjectOfType<AudioManager>().IsThisSoundPlaying("Floor"))
             {
                 FindObjectOfType<AudioManager>().Play("Floor");

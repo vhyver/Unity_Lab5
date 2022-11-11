@@ -5,6 +5,11 @@ public class SceneSwitcher : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("LevelTwo");
+        if(SceneManager.GetActiveScene().name == "LevelOne")
+            SceneManager.LoadScene("LevelTwo");
+        else
+        {
+            SceneManager.LoadScene("LevelOne");
+        }
     }
 }
