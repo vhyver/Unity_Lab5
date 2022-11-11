@@ -45,5 +45,18 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseVector.x, transform.rotation.eulerAngles.z);
         cameraPosition.rotation = Quaternion.Euler(cameraPosition.rotation.eulerAngles + new Vector3(mouseVector.y * -1, 0f, 0f));
+        
+        //Sound
+        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+        {
+            if (!FindObjectOfType<AudioManager>().IsThisSoundPlaying("Floor"))
+            {
+                FindObjectOfType<AudioManager>().Play("Floor");
+            }
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("Floor");
+        }
     }
 }
