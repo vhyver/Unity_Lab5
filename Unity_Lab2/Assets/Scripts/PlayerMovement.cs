@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         //Sound
         if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
         {
+            //if(gameObject.lay)
             if (!FindObjectOfType<AudioManager>().IsThisSoundPlaying("Floor"))
             {
                 FindObjectOfType<AudioManager>().Play("Floor");
